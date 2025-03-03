@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: darkcyan;
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.entity-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.entity-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: 15px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.entity-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.entity-header {
+  color: #ECE0DA;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 70px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-expansion-panel {
+  &.entity-expansion-panel {
+    margin-left: 5%;
+    margin-right: 5%
+  }
+}
+
+.accordion {
+  margin-left: 10%;
+}
+.create-panel {
+  cursor: pointer;
+}

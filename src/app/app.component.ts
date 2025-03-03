@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {CustomerComponent} from './customer/customer.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CustomerComponent, ToolbarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true
 })
 export class AppComponent {
   title = 'car-rental';

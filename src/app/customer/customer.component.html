@@ -1,0 +1,33 @@
+<mat-accordion class="accordion">
+  <mat-expansion-panel class="entity-expansion-panel" #panel *ngFor="let customer of customers">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>{{customer.firstName}} {{customer.lastName}}</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="entity-wrapper">
+      <div class="entity-list-wrapper">
+        <div class="entity-list">
+          <span>ID {{customer.customerId}}</span>
+          <span>{{customer.firstName}} {{customer.lastName}}</span>
+          <span>{{customer.email}}</span>
+        </div>
+        <div class="entity-options">
+          <button mat-icon-button (click)="customer.lastName = 'newTest'; updateCustomer(customer)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteCustomer(customer.customerId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="entity-expansion-panel create-panel" disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title (click)="addCustomer('test', 'test', 'test@test.de')">
+        Create new customer
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
