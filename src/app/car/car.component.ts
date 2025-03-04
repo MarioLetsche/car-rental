@@ -15,6 +15,8 @@ import {MatIconButton} from '@angular/material/button';
 import {NgForOf} from '@angular/common';
 import {CarsService} from '../service/cars.service';
 import {EditCarDialogComponent} from '../utility/edit-car-dialog/edit-car-dialog.component';
+import {MatTooltip} from '@angular/material/tooltip';
+import {RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-car',
@@ -25,7 +27,9 @@ import {EditCarDialogComponent} from '../utility/edit-car-dialog/edit-car-dialog
     MatExpansionPanelTitle,
     MatIcon,
     MatIconButton,
-    NgForOf
+    NgForOf,
+    MatTooltip,
+    RouterLinkActive
   ],
   standalone: true,
   templateUrl: './car.component.html'

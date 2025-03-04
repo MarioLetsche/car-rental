@@ -13,10 +13,10 @@
           <span>{{car.inRental ? 'Currently in rental' : 'Currently not in rental'}}</span>
         </div>
         <div class="entity-options">
-          <button mat-icon-button (click)="updateCar(car)">
+          <button mat-icon-button (click)="updateCar(car)"  matTooltip="Edit Car" [matTooltipShowDelay]="1000">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button (click)="deleteCar(car.carId)">
+          <button mat-icon-button (click)="deleteCar(car.carId)"  matTooltip="Delete Car" [matTooltipShowDelay]="1000">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

@@ -3,6 +3,7 @@ import {MatToolbar} from '@angular/material/toolbar';
 import {MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {RouterLink, RouterLinkActive} from '@angular/router';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,7 +12,8 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
     MatIconButton,
     MatIcon,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatTooltip
   ],
   standalone: true,
   templateUrl: './toolbar.component.html'

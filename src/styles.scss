@@ -34,6 +34,8 @@ body {
   gap: 15px;
   white-space: nowrap;
   flex-shrink: 0;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .entity-list-wrapper {
@@ -85,4 +87,13 @@ body {
 .snackbar-failed-icon {
   color: red;
   margin-top: auto;
+}
+
+.navigation {
+  font-size: 16px !important;
+}
+
+.rental-span {
+  margin-top: auto;
+  margin-bottom: auto;
 }

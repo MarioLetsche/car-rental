@@ -13,10 +13,10 @@
           <span>{{customer.email}}</span>
         </div>
         <div class="entity-options">
-          <button mat-icon-button (click)="updateCustomer(customer)">
+          <button mat-icon-button (click)="updateCustomer(customer)"  matTooltip="Edit Customer" [matTooltipShowDelay]="1000">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button (click)="deleteCustomer(customer.customerId)">
+          <button mat-icon-button (click)="deleteCustomer(customer.customerId)"  matTooltip="Delete Customer" [matTooltipShowDelay]="1000">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

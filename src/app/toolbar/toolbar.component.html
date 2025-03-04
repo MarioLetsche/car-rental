@@ -1,14 +1,14 @@
 <mat-toolbar>
   <span>SuperRental</span>
   <span class="toolbar-spacer"></span>
-  <span>Navigation:</span>
-  <button mat-icon-button routerLink="/customers" routerLinkActive="active">
+  <span class="navigation">Navigation | </span>
+  <button mat-icon-button routerLink="/customers" routerLinkActive="active" matTooltip="Customers" [matTooltipShowDelay]="1000">
     <mat-icon>person</mat-icon>
   </button>
-  <button mat-icon-button routerLink="/cars" routerLinkActive="active">
+  <button mat-icon-button routerLink="/cars" routerLinkActive="active" matTooltip="Cars" [matTooltipShowDelay]="1000">
     <mat-icon>directions_car</mat-icon>
   </button>
-  <button mat-icon-button routerLink="/rentals" routerLinkActive="active">
+  <button mat-icon-button routerLink="/rentals" routerLinkActive="active" matTooltip="Rentals" [matTooltipShowDelay]="1000">
     <mat-icon>business</mat-icon>
   </button>
 </mat-toolbar>

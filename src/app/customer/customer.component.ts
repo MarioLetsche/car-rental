@@ -15,6 +15,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {EditCustomerDialogComponent} from '../utility/edit-customer-dialog/edit-customer-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {StatusSnackbarComponent} from '../utility/status-snackbar/status-snackbar.component';
+import {MatTooltip} from '@angular/material/tooltip';
+import {RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -26,7 +28,9 @@ import {StatusSnackbarComponent} from '../utility/status-snackbar/status-snackba
     MatExpansionPanel,
     MatExpansionPanelHeader,
     MatIconButton,
-    MatIcon
+    MatIcon,
+    MatTooltip,
+    RouterLinkActive
   ],
   standalone: true,
   templateUrl: './customer.component.html'
