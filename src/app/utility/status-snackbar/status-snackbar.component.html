@@ -1,0 +1,6 @@
+<div class='snackbar-wrapper'>
+  <span>{{ data }}</span>
+  <mat-progress-spinner mode='indeterminate' color='primary' diameter='24' *ngIf='!hidden'></mat-progress-spinner>
+  <mat-icon matSnackBarAction *ngIf='hidden && successful' class='snackbar-success-icon'>done</mat-icon>
+  <mat-icon matSnackBarAction *ngIf='hidden && !successful' class='snackbar-failed-icon'>error_outline</mat-icon>
+</div>

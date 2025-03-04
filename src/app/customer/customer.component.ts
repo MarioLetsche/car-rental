@@ -13,6 +13,8 @@ import {MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {MatDialog} from '@angular/material/dialog';
 import {EditCustomerDialogComponent} from '../utility/edit-customer-dialog/edit-customer-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {StatusSnackbarComponent} from '../utility/status-snackbar/status-snackbar.component';
 
 @Component({
   selector: 'app-customer',
@@ -34,7 +36,8 @@ export class CustomerComponent implements OnInit {
   private destroy_stream$: Subject<void> = new Subject<void>();
 
   constructor(private customerService: CustomersService,
-              private matDialog: MatDialog) {
+              private matDialog: MatDialog,
+              private snackbar: MatSnackBar) {
   }
 
     ngOnInit() {
@@ -43,9 +46,6 @@ export class CustomerComponent implements OnInit {
         .subscribe({
           next: customersList => {
             this.customers = customersList
-          },
-          error: () => {
-            //TODO: Implement error handling
           }
         })
 
@@ -53,12 +53,31 @@ export class CustomerComponent implements OnInit {
     }
 
     public deleteCustomer(customerId: bigint | undefined): void {
+      const snackbar = this.snackbar.openFromComponent(StatusSnackbarComponent, {
+        data: 'Trying to delete the customer',
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        duration: 2500
+      })
+
       if (!customerId) {
+        snackbar.instance.data = 'Missing the customers ID!'
+        snackbar.instance.hidden = true;
+        snackbar.instance.successful = false;
         return
       }
+
       this.customerService.deleteCustomer(customerId).subscribe({
-        next: () => {},
-        error: () => {}
+        next: () => {
+          snackbar.instance.data = 'Deleted selected customer';
+          snackbar.instance.hidden = true;
+          snackbar.instance.successful = true;
+        },
+        error: () => {
+          snackbar.instance.data = 'Failed to delete selected customer';
+          snackbar.instance.hidden = true;
+          snackbar.instance.successful = false;
+        }
       });
       this.reloadCustomers();
     }

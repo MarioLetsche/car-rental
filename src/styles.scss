@@ -68,3 +68,21 @@ body {
 .create-panel {
   cursor: pointer;
 }
+
+.snackbar-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.snackbar-success-icon {
+  color: green;
+  margin-top: auto;
+}
+
+.snackbar-failed-icon {
+  color: red;
+  margin-top: auto;
+}
