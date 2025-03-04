@@ -1,15 +1,15 @@
 <h2 mat-dialog-title>Edit Customer</h2>
 <mat-dialog-content>
-  <input class="dialog-input" placeholder="First Name" [(ngModel)]="firstName">
+  <input class="dialog-input" placeholder="First Name" [(ngModel)]="customer.firstName">
 </mat-dialog-content>
 <mat-dialog-content>
-  <input class="dialog-input" placeholder="Last Name" [(ngModel)]="lastName">
+  <input class="dialog-input" placeholder="Last Name" [(ngModel)]="customer.lastName">
 </mat-dialog-content>
 <mat-dialog-content>
-  <input class="dialog-input" placeholder="Email" [(ngModel)]="email">
+  <input class="dialog-input" placeholder="Email" [(ngModel)]="customer.email">
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button matDialogClose (click)="updateCustomer({firstName, lastName, email, customerId}); firstName = ''; lastName = ''; email = ''; customerId = undefined;">
+  <button mat-button matDialogClose (click)="updateCustomer(customer); customer = {firstName: '', lastName: '', email: '', customerId: undefined}">
     Confirm
   </button>
   <button mat-button matDialogClose>

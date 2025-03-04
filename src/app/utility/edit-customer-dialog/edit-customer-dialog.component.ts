@@ -25,17 +25,11 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './edit-customer-dialog.component.html'
 })
 export class EditCustomerDialogComponent {
-  firstName: string;
-  lastName: string;
-  email: string;
-  customerId: bigint | undefined;
+  customer: Customer;
 
   constructor(private customerService: CustomersService,
               @Inject(MAT_DIALOG_DATA) public data: Customer) {
-    this.firstName = data.firstName;
-    this.lastName = data.lastName;
-    this.email = data.email;
-    this.customerId = data.customerId;
+    this.customer = data;
   }
 
   public updateCustomer(customer: Customer): void {
