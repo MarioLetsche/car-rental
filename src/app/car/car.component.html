@@ -1,0 +1,33 @@
+<mat-accordion class="accordion" multi>
+  <mat-expansion-panel class="entity-expansion-panel" *ngFor="let car of cars">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>{{car.brand}} {{car.model}}</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="entity-wrapper">
+      <div class="entity-list-wrapper">
+        <div class="entity-list">
+          <span>ID {{car.carId}}</span>
+          <span>{{car.brand}} {{car.model}}</span>
+          <span>{{car.inRental ? 'Currently in rental' : 'Currently not in rental'}}</span>
+        </div>
+        <div class="entity-options">
+          <button mat-icon-button (click)="updateCar(car)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteCar(car.carId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="entity-expansion-panel create-panel" disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title (click)="addCar()">
+        Create new car
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
