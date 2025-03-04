@@ -42,7 +42,7 @@ export class EditCustomerDialogComponent {
       verticalPosition: 'bottom',
       duration: 2500
     })
-    if (customer.firstName == '' || customer.lastName == '' || customer.email == '') {
+    if (customer.firstName === '' || customer.lastName === '' || customer.email === '') {
       snackbar.instance.data = 'Missing customer data!';
       snackbar.instance.hidden = true;
       snackbar.instance.successful = false;
@@ -54,6 +54,7 @@ export class EditCustomerDialogComponent {
         snackbar.instance.data = customer.customerId ? 'Updated customer' : 'Added new customer';
         snackbar.instance.hidden = true;
         snackbar.instance.successful = true;
+        this.customerService.loadCustomers();
       },
       error: () => {
         snackbar.instance.data = customer.customerId ? 'Failed to update customer' : 'Failed to add new customer';
@@ -61,8 +62,5 @@ export class EditCustomerDialogComponent {
         snackbar.instance.successful = false;
       }
     })
-    setTimeout(() => {
-      this.customerService.loadCustomers()
-    }, 100);
   }
 }

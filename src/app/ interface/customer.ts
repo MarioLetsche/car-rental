@@ -4,7 +4,3 @@ export interface Customer {
   lastName: string,
   email: string
 }
-
-export interface CustomerList {
-  customerList: Customer[]
-}

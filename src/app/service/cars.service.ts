@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {config} from '../config';
-import {catchError, lastValueFrom, Observable, Subject, take} from 'rxjs';
+import {catchError, Observable, Subject, take} from 'rxjs';
 import {Car} from '../ interface/car';
 
 @Injectable({
@@ -14,8 +14,7 @@ export class CarsService {
   constructor(private httpClient: HttpClient) {}
 
   public loadCars(): void {
-    lastValueFrom(this.httpClient.get<Car[]>(this.carsUrl))
-      .then(data => this.cars$.next(data));
+    this.httpClient.get<Car[]>(this.carsUrl).pipe().subscribe(cars => {this.cars$.next(cars)});
   }
 
   public deleteCar(carId: bigint): Observable<any> {

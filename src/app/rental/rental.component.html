@@ -1,0 +1,31 @@
+<mat-accordion class="accordion" multi>
+  <mat-expansion-panel class="entity-expansion-panel" *ngFor="let rental of rentals">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>{{rental.customer.email}} | {{rental.car.brand}} {{rental.car.model}}</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="entity-wrapper">
+      <div class="entity-list-wrapper">
+        <div class="entity-list">
+          <span>ID {{rental.rentalId}}</span>
+          <span>{{rental.customer.firstName}} {{rental.customer.lastName}}</span>
+          <span>{{rental.car.brand}} {{rental.car.model}}</span>
+          <span>Booked mileage: {{rental.mileage}} km</span>
+        </div>
+        <div class="entity-options">
+          <button mat-icon-button (click)="deleteRental(rental.rentalId)"  matTooltip="Delete Rental" [matTooltipShowDelay]="1000">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="entity-expansion-panel create-panel" disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title (click)="addRental()">
+        Create new rental
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>

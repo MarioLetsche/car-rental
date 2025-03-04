@@ -76,6 +76,7 @@ export class CustomerComponent implements OnInit, OnDestroy {
           snackbar.instance.data = 'Deleted selected customer';
           snackbar.instance.hidden = true;
           snackbar.instance.successful = true;
+          this.customerService.loadCustomers();
         },
         error: () => {
           snackbar.instance.data = 'Failed to delete selected customer';
@@ -83,15 +84,7 @@ export class CustomerComponent implements OnInit, OnDestroy {
           snackbar.instance.successful = false;
         }
       });
-      this.reloadCustomers();
     }
-
-    private reloadCustomers(): void {
-      setTimeout(() => {
-        this.customerService.loadCustomers();
-      }, 100)
-    }
-
     public addCustomer(): void {
       const customer: Customer = {
         firstName: '',
@@ -112,5 +105,6 @@ export class CustomerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.destroy_stream$.next();
+    this.destroy_stream$.complete();
   }
 }

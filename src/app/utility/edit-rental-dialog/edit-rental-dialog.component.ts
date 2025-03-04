@@ -1,6 +1,5 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {
-  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
@@ -10,11 +9,11 @@ import {MatButton} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {StatusSnackbarComponent} from '../status-snackbar/status-snackbar.component';
-import {Car} from '../../ interface/car';
-import {CarsService} from '../../service/cars.service';
+import {RentalWithId} from '../../ interface/rental';
+import {RentalsService} from '../../service/rentals.service';
 
 @Component({
-  selector: 'app-edit-car-dialog',
+  selector: 'app-edit-rental-dialog',
   imports: [
     MatDialogTitle,
     MatDialogContent,
@@ -24,43 +23,42 @@ import {CarsService} from '../../service/cars.service';
     FormsModule
   ],
   standalone: true,
-  templateUrl: './edit-car-dialog.component.html'
+  templateUrl: './edit-rental-dialog.component.html'
 })
-export class EditCarDialogComponent {
-  car: Car;
+export class EditRentalDialogComponent {
+  rental: RentalWithId = {customerId: undefined, carId: undefined, mileage: undefined};
 
-  constructor(private carService: CarsService,
-              private snackbar: MatSnackBar,
-              @Inject(MAT_DIALOG_DATA) public data: Car) {
-    this.car = data;
+  constructor(private rentalsService: RentalsService,
+              private snackbar: MatSnackBar) {
   }
 
-  public updateCar(car: Car): void {
+  public updateRental(rental: RentalWithId): void {
     const snackbar = this.snackbar.openFromComponent(StatusSnackbarComponent, {
-      data: car.carId ? 'Trying to update car data' : 'Trying to add car',
+      data: 'Trying to add rental',
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
       duration: 2500
     })
-    if (car.brand === '' || car.model === '') {
-      snackbar.instance.data = 'Missing car data!';
+
+    if (rental.customerId === undefined || rental.carId === undefined || rental.mileage === undefined || Number(rental.mileage) < 1) {
+      snackbar.instance.data = 'Missing or invalid data!';
       snackbar.instance.hidden = true;
       snackbar.instance.successful = false;
       return;
     }
 
-    this.carService.saveCar(car).subscribe({
+    this.rentalsService.saveRental(rental).subscribe({
       next: () => {
-        snackbar.instance.data = car.carId ? 'Updated car' : 'Added new car';
+        snackbar.instance.data = 'Added new rental';
         snackbar.instance.hidden = true;
         snackbar.instance.successful = true;
-        this.carService.loadCars();
+        this.rentalsService.loadRentals()
       },
       error: () => {
-        snackbar.instance.data = car.carId ? 'Failed to update car' : 'Failed to add car';
+        snackbar.instance.data = 'Failed to add new rental';
         snackbar.instance.hidden = true;
         snackbar.instance.successful = false;
       }
-    })
+    });
   }
 }

@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Edit Customer</h2>
+<mat-dialog-content>
+  <input class="dialog-input" placeholder="Customer ID" [(ngModel)]="rental.customerId">
+</mat-dialog-content>
+<mat-dialog-content>
+  <input class="dialog-input" placeholder="Car ID" [(ngModel)]="rental.carId">
+</mat-dialog-content>
+<mat-dialog-content>
+  <input class="dialog-input" placeholder="Mileage" [(ngModel)]="rental.mileage">
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button matDialogClose (click)="updateRental(rental); rental = {customerId: undefined, carId: undefined, mileage: undefined}">
+    Confirm
+  </button>
+  <button mat-button matDialogClose>
+    Close
+  </button>
+</mat-dialog-actions>

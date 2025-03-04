@@ -4,7 +4,3 @@ export interface Car {
   model: string,
   inRental: boolean
 }
-
-export interface CarList {
-  carList: Car[]
-}
