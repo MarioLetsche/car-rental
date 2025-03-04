@@ -1,5 +1,5 @@
-<mat-accordion class="accordion">
-  <mat-expansion-panel class="entity-expansion-panel" #panel *ngFor="let customer of customers">
+<mat-accordion class="accordion" multi>
+  <mat-expansion-panel class="entity-expansion-panel" *ngFor="let customer of customers">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span>{{customer.firstName}} {{customer.lastName}}</span>
@@ -13,7 +13,7 @@
           <span>{{customer.email}}</span>
         </div>
         <div class="entity-options">
-          <button mat-icon-button (click)="customer.lastName = 'newTest'; updateCustomer(customer)">
+          <button mat-icon-button (click)="updateCustomer(customer)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button (click)="deleteCustomer(customer.customerId)">
@@ -25,7 +25,7 @@
   </mat-expansion-panel>
   <mat-expansion-panel class="entity-expansion-panel create-panel" disabled>
     <mat-expansion-panel-header>
-      <mat-panel-title (click)="addCustomer('test', 'test', 'test@test.de')">
+      <mat-panel-title (click)="addCustomer()">
         Create new customer
       </mat-panel-title>
     </mat-expansion-panel-header>

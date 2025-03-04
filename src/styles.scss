@@ -5,8 +5,18 @@ html, body {
 }
 
 body {
-  background-color: darkcyan;
+  background-color: whitesmoke;
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.dialog-input {
+  outline: none;
+  border: none;
+  background-color: whitesmoke;
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+  width: 95%;
 }
 
 .entity-wrapper {

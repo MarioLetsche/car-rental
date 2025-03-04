@@ -11,6 +11,8 @@ import {
 } from '@angular/material/expansion';
 import {MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
+import {MatDialog} from '@angular/material/dialog';
+import {EditCustomerDialogComponent} from '../utility/edit-customer-dialog/edit-customer-dialog.component';
 
 @Component({
   selector: 'app-customer',
@@ -31,7 +33,8 @@ export class CustomerComponent implements OnInit {
   public customers: Customer[] = [];
   private destroy_stream$: Subject<void> = new Subject<void>();
 
-  constructor(private customerService: CustomersService) {
+  constructor(private customerService: CustomersService,
+              private matDialog: MatDialog) {
   }
 
     ngOnInit() {
@@ -66,25 +69,21 @@ export class CustomerComponent implements OnInit {
       }, 100)
     }
 
-    public addCustomer(firstName: string, lastName: string, email: string): void {
+    public addCustomer(): void {
       const customer: Customer = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email
+        firstName: '',
+        lastName: '',
+        email: ''
       }
 
-      this.customerService.saveCustomer(customer).subscribe({
-        next: () => {},
-        error: () => {}
-      });
-      this.reloadCustomers();
+      this.matDialog.open(EditCustomerDialogComponent, {
+        data: customer
+      })
     }
 
     public updateCustomer(customer: Customer): void {
-      this.customerService.saveCustomer(customer).subscribe({
-        next: () => {},
-        error: () => {}
-      })
-      this.reloadCustomers();
+      this.matDialog.open(EditCustomerDialogComponent, {
+        data: customer
+      });
     }
 }
