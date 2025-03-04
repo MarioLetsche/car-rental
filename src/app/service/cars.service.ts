@@ -23,6 +23,10 @@ export class CarsService {
   }
 
   public saveCar(car: Car): Observable<any> {
+    if (car.carId === undefined) {
+      return this.httpClient.post(this.carsUrl, car)
+        .pipe(take(1), catchError(err => {throw err;}))
+    }
     return this.httpClient.put(this.carsUrl, car)
       .pipe(take(1), catchError(err => {throw err;}))
   }

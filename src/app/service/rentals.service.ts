@@ -23,7 +23,7 @@ export class RentalsService {
   }
 
   public saveRental(rental: RentalWithId): Observable<any> {
-    return this.httpClient.put(this.rentalsUrl, rental)
+    return this.httpClient.post(this.rentalsUrl, rental)
       .pipe(take(1), catchError(err => {throw err;}))
   }
 }

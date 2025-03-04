@@ -23,6 +23,10 @@ export class CustomersService {
   }
 
   public saveCustomer(customer: Customer): Observable<any> {
+    if (customer.customerId === undefined) {
+      return this.httpClient.post(this.customersUrl, customer)
+        .pipe(take(1), catchError(err => {throw err;}))
+    }
     return this.httpClient.put(this.customersUrl, customer)
       .pipe(take(1), catchError(err => {throw err;}))
   }
