@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject, takeUntil} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -30,7 +30,7 @@ import {EditCarDialogComponent} from '../utility/edit-car-dialog/edit-car-dialog
   standalone: true,
   templateUrl: './car.component.html'
 })
-export class CarComponent {
+export class CarComponent implements OnInit, OnDestroy {
   public cars: Car[] = [];
   private destroy_stream$: Subject<void> = new Subject<void>();
 
@@ -103,5 +103,9 @@ export class CarComponent {
     this.matDialog.open(EditCarDialogComponent, {
       data: car
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy_stream$.next();
   }
 }

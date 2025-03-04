@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject, takeUntil} from 'rxjs';
 import {CustomersService} from '../service/customers.service';
 import {Customer} from '../ interface/customer';
@@ -31,7 +31,7 @@ import {StatusSnackbarComponent} from '../utility/status-snackbar/status-snackba
   standalone: true,
   templateUrl: './customer.component.html'
 })
-export class CustomerComponent implements OnInit {
+export class CustomerComponent implements OnInit, OnDestroy {
   public customers: Customer[] = [];
   private destroy_stream$: Subject<void> = new Subject<void>();
 
@@ -105,4 +105,8 @@ export class CustomerComponent implements OnInit {
         data: customer
       });
     }
+
+  ngOnDestroy(): void {
+    this.destroy_stream$.next();
+  }
 }
