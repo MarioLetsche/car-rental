@@ -1,5 +1,19 @@
 # CarRental
 
+This project needs the installation of Angular. This can be done with node.js and npm.
+
+After installing node.js use
+
+```bash
+npm install -g @angular/cli
+```
+
+and then in the project urn
+
+```bash
+npm install
+```
+
 # Important
 Make sure that the backend service is running. The car-rental-interface can be found here: https://github.com/MarioLetsche/car-rental-interface
 
@@ -9,25 +23,13 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 To start a local development server, run:
 
+Before this 
+
 ```bash
 ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
@@ -38,25 +40,3 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
