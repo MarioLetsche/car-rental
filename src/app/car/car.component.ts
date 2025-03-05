@@ -55,7 +55,7 @@ export class CarComponent implements OnInit, OnDestroy {
     this.carService.loadCars();
   }
 
-  public deleteCar(carId: bigint | undefined): void {
+  public deleteCar(carId: number | undefined): void {
     const snackbar = this.snackbar.openFromComponent(StatusSnackbarComponent, {
       data: 'Trying to delete the car',
       horizontalPosition: 'center',

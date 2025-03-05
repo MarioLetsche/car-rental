@@ -56,7 +56,7 @@ export class CustomerComponent implements OnInit, OnDestroy {
       this.customerService.loadCustomers();
     }
 
-    public deleteCustomer(customerId: bigint | undefined): void {
+    public deleteCustomer(customerId: number | undefined): void {
       const snackbar = this.snackbar.openFromComponent(StatusSnackbarComponent, {
         data: 'Trying to delete the customer',
         horizontalPosition: 'center',

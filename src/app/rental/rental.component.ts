@@ -56,7 +56,7 @@ export class RentalComponent implements OnInit, OnDestroy {
     this.rentalService.loadRentals();
   }
 
-  public deleteRental(rentalId: bigint | undefined): void {
+  public deleteRental(rentalId: number | undefined): void {
     const snackbar = this.snackbar.openFromComponent(StatusSnackbarComponent, {
       data: 'Trying to delete the rental',
       horizontalPosition: 'center',

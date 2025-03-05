@@ -1,5 +1,8 @@
 # CarRental
 
+# Important
+Make sure that the backend service is running. The car-rental-interface can be found here: https://github.com/MarioLetsche/car-rental-interface
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
 
 ## Development server

@@ -17,8 +17,8 @@ export class CarsService {
     this.httpClient.get<Car[]>(this.carsUrl).pipe().subscribe(cars => {this.cars$.next(cars)});
   }
 
-  public deleteCar(carId: bigint): Observable<any> {
-    return this.httpClient.delete<bigint>(this.carsUrl, {body: carId})
+  public deleteCar(carId: number): Observable<any> {
+    return this.httpClient.delete<number>(this.carsUrl, {body: carId})
       .pipe(take(1), catchError(err => {throw err;}));
   }
 

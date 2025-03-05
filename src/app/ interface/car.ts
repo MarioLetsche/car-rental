@@ -1,5 +1,5 @@
 export interface Car {
-  carId?: bigint,
+  carId?: number,
   brand: string,
   model: string,
   inRental: boolean

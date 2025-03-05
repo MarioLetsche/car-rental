@@ -17,8 +17,8 @@ export class RentalsService {
     this.httpClient.get<Rental[]>(this.rentalsUrl).pipe().subscribe(res => this.rentals$.next(res));
   }
 
-  public deleteRental(rentalId: bigint): Observable<any> {
-    return this.httpClient.delete<bigint>(this.rentalsUrl, {body: rentalId})
+  public deleteRental(rentalId: number): Observable<any> {
+    return this.httpClient.delete<number>(this.rentalsUrl, {body: rentalId})
       .pipe(take(1), catchError(err => {throw err;}));
   }
 

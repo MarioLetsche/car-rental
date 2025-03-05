@@ -17,8 +17,8 @@ export class CustomersService {
     this.httpClient.get<Customer[]>(this.customersUrl).pipe().subscribe(customers => {this.customers$.next(customers)})
   }
 
-  public deleteCustomer(customerId: bigint): Observable<any> {
-    return this.httpClient.delete<bigint>(this.customersUrl, {body: customerId})
+  public deleteCustomer(customerId: number): Observable<any> {
+    return this.httpClient.delete<number>(this.customersUrl, {body: customerId})
       .pipe(take(1), catchError(err => {throw err;}));
   }
 

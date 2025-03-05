@@ -2,14 +2,14 @@ import {Customer} from './customer';
 import {Car} from './car';
 
 export interface Rental {
-  rentalId: bigint,
+  rentalId: number,
   customer: Customer,
   car: Car,
   mileage: number
 }
 
 export interface RentalWithId {
-  customerId: bigint | undefined,
-  carId: bigint | undefined,
+  customerId: number | undefined,
+  carId: number | undefined,
   mileage: number | undefined,
 }
